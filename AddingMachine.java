@@ -19,6 +19,8 @@ package cse360assign2;
 public class AddingMachine {
 
 	private int total;
+	// The string representation of the history of the machine
+	private String history;
 	
 	/**
 	 * Creates an object that can be used to perform a series of operations.
@@ -26,6 +28,7 @@ public class AddingMachine {
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		history = "0";
 	}
 	
 	/**
@@ -35,7 +38,7 @@ public class AddingMachine {
 	 * @return  an integer that is the current total value
 	 */
 	public int getTotal () {
-		return 0;
+		return this.total;
 	}
 	
 	/**
@@ -47,7 +50,8 @@ public class AddingMachine {
 	 * @param  value  the number to be added to the total
 	 */
 	public void add (int value) {
-		
+		this.total += value;
+		this.history += String.format(" + %d", value);
 	}
 	
 	/**
@@ -59,7 +63,8 @@ public class AddingMachine {
 	 * @param  value  the number to be subtracted from the total
 	 */
 	public void subtract (int value) {
-		
+		this.total -= value;
+		this.history += String.format(" - %d", value);
 	}
 		
 	/**
@@ -69,7 +74,7 @@ public class AddingMachine {
 	 * @return  a string representation of the operations that have been performed
 	 */
 	public String toString () {
-		return "";
+		return this.history;
 	}
 
 	/**
@@ -79,6 +84,7 @@ public class AddingMachine {
 	 *
 	 */
 	public void clear() {
-	
+		this.total = 0;
+		this.history = "0";
 	}
 }
